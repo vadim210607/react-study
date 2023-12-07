@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './style/app.css' 
 import PostList from './components/PostList';
-import MyButton from './components/UI/button/MyButton';
-import MyInput from './components/UI/input/MyInput'
+import NewPost from './components/NewPost';
+
+
 
 
 function App() {
@@ -13,19 +14,19 @@ function App() {
         {id: 3, title: 'Javascript 3', body: 'Content to Javascript 3'},
     ])
 
+    const createPost = (newPost) => {
+        setPosts([...posts, newPost])
+    }
+
+
+
+    
+
 
     return (
         <div className="App">
 
-            <form className='form_all'>
-
-                <MyInput type="text" placeholder='Назва поста'/>
-
-                <MyInput type="text" placeholder='Опис поста'/>
-
-                <MyButton>Створити пост</MyButton>
-
-            </form>
+            <NewPost create1={createPost}/>
 
             <PostList posts={posts} title='Список Javascript'/>
 
